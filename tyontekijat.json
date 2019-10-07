@@ -1,0 +1,40 @@
+{
+  "tyontekijat": [
+    {
+      "firstName": "Mauno",
+      "lastName": "Ahonen",
+      "address": "Kaivantokatu 7",
+      "phoneNumbers": [
+        "0403922310",
+        null
+      ]
+    },
+    {
+      "firstName": "Matti",
+      "lastName": "Näsä",
+      "address": "Kuopionväylä 2A",
+      "phoneNumbers": [
+        "0501257602",
+        "0503252623"
+      ] 
+    },
+    {
+      "firstName": "Raimo",
+      "lastName": "Vormisto",
+      "address": "Metsätie 1",
+      "phoneNumbers": [
+        null,
+        "0507995321"
+      ]
+    },
+    {
+      "firstName": "Timo",
+      "lastName": "Silakka",
+      "address": "Taistonkatu 13C",
+      "phoneNumbers": [
+        "0403213970",
+        "0403689215"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>JSON-kokeiluja....</title>
+</head>
+
+<body>
+  <table id="duunarit"></table> 
+  <script>
+    var xmlhttp = new XMLHttpRequest();
+    var url = "tyontekijat.json"; 
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var myArr = JSON.parse(xmlhttp.responseText);
+        myFunction(myArr.tyontekijat); 
+      }
+    }
+    xmlhttp.open("GET", url, true); 
+    xmlhttp.send();
+    function myFunction(arr) {
+      const table = document.getElementById("duunarit");
+      //Create table headers
+      let row = table.insertRow();
+      const header1 = document.createElement("th");
+      const header2 = document.createElement("th");
+      const header3 = document.createElement("th");
+      const header4 = document.createElement("th");
+      const header5 = document.createElement("th");
+      header1.innerHTML = "Etunimi";
+      header2.innerHTML = "Sukunimi";
+      header3.innerHTML = "Osoite";
+      header4.innerHTML = "Kotipuhelin";
+      header5.innerHTML = "Työpuhelin";
+      row.appendChild(header1);
+      row.appendChild(header2);
+      row.appendChild(header3);
+      row.appendChild(header4);
+      row.appendChild(header5);
+      //Fill table with data
+      for (let i = 0; i < arr.length; i++) {
+        row = table.insertRow();
+        const employee = arr[i];
+        const keys = Object.keys(employee);
+        for (let j = 0; j < keys.length; j++) {
+          if (keys[j] === "phoneNumbers") {
+            for (let k = 0; k < employee[keys[j]].length; k++) {
+              const cell = row.insertCell();
+              cell.innerHTML = employee[keys[j]][k];
+            }
+          } else {
+            const cell = row.insertCell();
+            cell.innerHTML = employee[keys[j]];
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
